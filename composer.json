@@ -4,6 +4,7 @@
     "type": "statamic-addon",
     "keywords": ["statamic","favicon"],
     "homepage": "https://laborb.de",
+    "license": "MIT",
     "authors": [
         {
             "name": "Holger Schillack",
