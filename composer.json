@@ -1,0 +1,41 @@
+{
+    "name": "laborb/statamic-favicon-generator",
+    "description": "Generate realfavicon from your Statamic control panel",
+    "type": "statamic-addon",
+    "keywords": ["statamic","favicon"],
+    "homepage": "https://laborb.de",
+    "authors": [
+        {
+            "name": "Holger Schillack",
+            "email": "hs@laborb.de",
+            "homepage": "https://laborb.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Jannis Forsthövel",
+            "email": "jf@laborb.de",
+            "homepage": "https://laborb.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "statamic/cms": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laborb\\FaviconGenerator\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Favicon Generator",
+            "description": "Favicon Generator addon"
+        },
+        "laravel": {
+            "providers": [
+                "Laborb\\FaviconGenerator\\ServiceProvider"
+            ]
+        }
+    }
+}
