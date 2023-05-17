@@ -34,7 +34,7 @@ Click `Save and generate` to save the settings and generate all configured favic
 ### Publish config file
 
 ``` bash
-php artisan vendor:publish --tag=statamic-favicon-generator --force
+php artisan vendor:publish --tag=favicon-generator-config
 ```
 
 ### Assets container

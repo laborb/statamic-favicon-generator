@@ -2,7 +2,7 @@
     "name": "laborb/statamic-favicon-generator",
     "description": "Generate realfavicon from your Statamic control panel",
     "type": "statamic-addon",
-    "keywords": ["statamic","favicon"],
+    "keywords": ["statamic-addon","favicon-generator","favicon","realfavicongenerator","realfavicon","real-favicon"],
     "homepage": "https://laborb.de",
     "license": "MIT",
     "authors": [

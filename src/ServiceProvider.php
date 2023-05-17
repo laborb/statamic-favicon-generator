@@ -42,7 +42,7 @@ class ServiceProvider extends AddonServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/favicons.php' => config_path('statamic/favicons.php'),
-        ], 'laborb-favicon-generator-config');
+        ], 'favicon-generator-config');
 
         if (!file_exists(base_path(config('statamic.favicons.path')))) {
             $this->publishes([
