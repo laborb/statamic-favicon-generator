@@ -28,7 +28,7 @@ class ServiceProvider extends AddonServiceProvider
     public function bootAddon()
     {
         Utility::extend(function () {
-            Utility::register('favicons')
+            Utility::register('favicon-generator')
                 ->title('Favicons')
                 ->navTitle('Favicons')
                 ->description('Automatically generate favicons for your site.')
