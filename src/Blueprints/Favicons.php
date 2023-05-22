@@ -36,14 +36,14 @@ class Favicons
         return Blueprint::make()->setContents([
             'sections' => [
                 'main' => [
-                    'display' => __('favicon-generator::cp.settings.title'),
+                    'display' => __('statamic-favicon-generator::cp.settings.title'),
                     'fields' => [
                         [
                             'handle' => 'settings_introduction',
                             'field' => [
                                 'default' => true,
-                                'display' => __('favicon-generator::cp.settings.title'),
-                                'instructions' => __('favicon-generator::cp.settings.description'),
+                                'display' => __('statamic-favicon-generator::cp.settings.title'),
+                                'instructions' => __('statamic-favicon-generator::cp.settings.description'),
                                 'type' => 'section',
                                 'icon' => 'section',
                                 'visibility' => 'visible',
@@ -52,12 +52,12 @@ class Favicons
                         [
                             'handle' => 'api_key',
                             'field' => [
-                                'display' => __('favicon-generator::cp.settings.api_key'),
-                                'instructions' => __('favicon-generator::cp.settings.api_key_description'),
+                                'display' => __('statamic-favicon-generator::cp.settings.api_key'),
+                                'instructions' => __('statamic-favicon-generator::cp.settings.api_key_description'),
                                 'type' => 'text',
                                 'icon' => 'text',
                                 'visibility' => 'visible',
-                                'required' => true,
+                                'required' => true
                             ],
                         ],
                         [
@@ -68,8 +68,8 @@ class Favicons
                                 'show_filename' => true,
                                 'allow_uploads' => true,
                                 'container' => self::getAssetsContainer()->handle(),
-                                'display' => __('favicon-generator::cp.settings.icon'),
-                                'instructions' => __('favicon-generator::cp.settings.icon_description'),
+                                'display' => __('statamic-favicon-generator::cp.settings.icon'),
+                                'instructions' => __('statamic-favicon-generator::cp.settings.icon_description'),
                                 'type' => 'assets',
                                 'icon' => 'assets',
                                 'visibility' => 'visible',

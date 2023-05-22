@@ -17,7 +17,7 @@
                     <button class="btn-primary" @click="save">Save and generate</button>
                 </div>
     
-                <publish-sections
+                <publish-tabs
                     @updated="setFieldValue"
                     @meta-updated="setFieldMeta" />
             </div>
