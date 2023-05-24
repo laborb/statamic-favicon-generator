@@ -14,3 +14,20 @@
 		'url' => 'https://statamic.com/addons/laborb/favicon-generator'
 	])
 @endsection
+
+<style>
+    .animate-spin {
+        animation-name: spin;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>

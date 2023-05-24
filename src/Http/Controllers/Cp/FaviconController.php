@@ -52,7 +52,7 @@ final class FaviconController extends CpController
 
 	public function generate(Request $request) {
 		$apiKey = Favicons::values()['api_key'];
-		$masterImage = url(Favicons::augmentedValues()['icon']);
+		$masterImage = Favicons::augmentedValues()['icon']->value()['permalink'];
 
 		$apiUrl = 'https://realfavicongenerator.net/api/favicon';
 		$filesLocationPath = '/' . Favicons::getAssetsContainer()['id'] . '/';
