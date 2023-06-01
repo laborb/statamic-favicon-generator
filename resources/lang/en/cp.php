@@ -3,6 +3,7 @@
 return [
     'general' => [
         'headline' => 'Favicon Generator',
+        'generate' => 'Save and generate',
     ],
     'settings' => [
         'title' => 'Favicon Generator Settings',

@@ -14,7 +14,7 @@
                         <h1>Favicon Generator</h1>
                         <small class="block text-xs text-gray-80">Last generated: {{ values.generated_at }}</small>
                     </div>
-                    <button class="btn-primary" @click="save">Save and generate</button>
+                    <button class="btn-primary" @click="save()">{{ generate }}</button>
                 </div>
     
                 <publish-tabs
@@ -43,7 +43,7 @@
 </template>
 <script>
 export default {
-    props: ['blueprint', 'meta', 'initialValues'],
+    props: ['blueprint', 'meta', 'initialValues', 'generate'],
     data() {
         return {
             values: this.initialValues,
