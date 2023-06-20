@@ -4,6 +4,7 @@ return [
     'general' => [
         'headline' => 'Favicon Generator',
         'generate' => 'Save and generate',
+        'description' => 'Generate favicons for your website',
     ],
     'settings' => [
         'title' => 'Favicon Generator Settings',
