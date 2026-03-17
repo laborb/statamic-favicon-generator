@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laborb\FaviconGenerator\Http\Controllers\Cp\FaviconController;
 
-Route::namespace('\Laborb\FaviconGenerator\Http\Controllers\Cp')
-    ->prefix('favicon-generator/')
+Route::prefix('favicon-generator')
     ->name('laborb.favicon-generator.')
     ->group(function () {
-        Route::get('/', 'FaviconController@index')->name('index');
-        Route::post('/update', 'FaviconController@update')->name('update');
+        Route::get('/', [FaviconController::class, 'index'])->name('index');
+        Route::post('/update', [FaviconController::class, 'update'])->name('update');
     });

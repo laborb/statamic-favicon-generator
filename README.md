@@ -2,9 +2,13 @@
 
 Favicon Generator is a Statamic addon that automatically generates all necessary favicons via the realfavicon.net API. Once configured you and your customers can regenerate all favicons with just a single click in the Statamic control panel.
 
+## Compatibility
+
+This addon supports Statamic 5 and Statamic 6.
+
 ## Features
 
-This addon covers all features of the realfavicon.net favicon generator. 
+This addon covers all features of the realfavicon.net favicon generator.
 
 - Web Favicons
 - Mobile Device App Icons
@@ -46,7 +50,7 @@ You can configure a Statamic assets container to store all generated favicons in
 By default the addon will only generate standard web favicons.
 You can configure other icons by uncommenting and editing the option settings in the `config/statamic/favicons.php` config file after you published it.
 
-You can find all available options here: https://realfavicongenerator.net/api/non_interactive_api
+You can find all available options here: <https://realfavicongenerator.net/api/non_interactive_api>
 
 ## License
 
