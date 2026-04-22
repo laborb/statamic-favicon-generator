@@ -79,11 +79,13 @@ final class FaviconController extends CpController
 
 			$apiUrl = 'https://realfavicongenerator.net/api/favicon';
 			$filesLocationPath = '/' . Favicons::getAssetsContainer()['id'] . '/';
+			$normalizedMasterImage = $this->normalizeMasterImage($masterImage, $request, $filesLocationPath);
+			$masterImageForApi = $normalizedMasterImage ?: $masterImage;
 
 			// Overwrite config values
 			$payload = config('statamic.favicons.payload');
 			$payload['favicon_generation']['api_key'] = $apiKey;
-			$payload['favicon_generation']['master_picture']['url'] = $masterImage;
+			$payload['favicon_generation']['master_picture']['url'] = $masterImageForApi;
 			$payload['favicon_generation']['files_location']['path'] = $filesLocationPath;
 			$payload['favicon_generation']['versioning']['param_value'] = Str::random(6);
 
@@ -148,6 +150,7 @@ final class FaviconController extends CpController
 			Log::error('Favicon generation failed.', [
 				'http_status' => $response->status(),
 				'master_image' => $masterImage,
+				'master_image_used' => $masterImageForApi,
 				'response_body' => $response->body(),
 			]);
 
@@ -164,6 +167,50 @@ final class FaviconController extends CpController
 				'status' => 'error',
 				'msg' => $e->getMessage() ?: 'Unexpected error during favicon generation.',
 			], 200);
+		}
+	}
+
+	private function normalizeMasterImage(string $masterImage, Request $request, string $filesLocationPath): ?string
+	{
+		try {
+			$imageResponse = Http::timeout(30)->get($masterImage);
+			if (!$imageResponse->successful()) {
+				return null;
+			}
+
+			$binary = $imageResponse->body();
+			if (!$binary) {
+				return null;
+			}
+
+			$image = @imagecreatefromstring($binary);
+			if ($image === false) {
+				return null;
+			}
+
+			$targetDir = public_path($filesLocationPath);
+			if (!is_dir($targetDir)) {
+				mkdir($targetDir, 0755, true);
+			}
+
+			$targetFilename = '__rfg-master-' . Str::random(8) . '.png';
+			$targetPath = rtrim($targetDir, '/') . '/' . $targetFilename;
+
+			$written = @imagepng($image, $targetPath, 9);
+			imagedestroy($image);
+
+			if (!$written) {
+				return null;
+			}
+
+			return rtrim($request->getSchemeAndHttpHost(), '/') . rtrim($filesLocationPath, '/') . '/' . $targetFilename;
+		} catch (\Throwable $e) {
+			Log::warning('Master image normalization failed.', [
+				'master_image' => $masterImage,
+				'exception' => $e,
+			]);
+
+			return null;
 		}
 	}
 }
