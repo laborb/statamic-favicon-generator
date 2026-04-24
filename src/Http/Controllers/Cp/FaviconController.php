@@ -58,7 +58,7 @@ final class FaviconController extends CpController
 			if (!$apiKey || !$masterImage) {
 				return response()->json([
 					'status' => 'error',
-					'msg' => 'Missing API key or master image.'
+					'msg' => __('statamic-favicon-generator::cp.errors.missing_inputs'),
 				], 200);
 			}
 
@@ -72,7 +72,7 @@ final class FaviconController extends CpController
 				) {
 					return response()->json([
 						'status' => 'error',
-						'msg' => 'The selected image is hosted on a local URL and cannot be fetched by RealFaviconGenerator. Use a publicly reachable image URL.'
+					'msg' => __('statamic-favicon-generator::cp.errors.local_url'),
 					], 200);
 				}
 			}
@@ -125,7 +125,7 @@ final class FaviconController extends CpController
 
 				return response()->json([
 					'status' => 'success',
-					'msg' => 'Saved and generated'
+					'msg' => __('statamic-favicon-generator::cp.success.generated'),
 				], 200);
 			}
 
@@ -136,7 +136,7 @@ final class FaviconController extends CpController
 				?? 'Favicon generation failed.';
 
 			if (is_string($errorMessage) && str_contains(strtolower($errorMessage), 'fetch failed')) {
-				$errorMessage = 'The source image URL is not publicly reachable for RealFaviconGenerator. Please use a publicly accessible image URL (no local ddev/private host).';
+				$errorMessage = __('statamic-favicon-generator::cp.errors.local_url');
 			}
 
 			if (is_array($errorMessage)) {
@@ -144,7 +144,7 @@ final class FaviconController extends CpController
 			}
 
 			if (!$errorMessage) {
-				$errorMessage = 'Favicon generation failed.';
+				$errorMessage = __('statamic-favicon-generator::cp.errors.generation_failed');
 			}
 
 			Log::error('Favicon generation failed.', [
@@ -165,7 +165,7 @@ final class FaviconController extends CpController
 
 			return response()->json([
 				'status' => 'error',
-				'msg' => $e->getMessage() ?: 'Unexpected error during favicon generation.',
+				'msg' => $e->getMessage() ?: __('statamic-favicon-generator::cp.errors.unexpected'),
 			], 200);
 		}
 	}

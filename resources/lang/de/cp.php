@@ -20,4 +20,22 @@ return [
 
     'unable_to_save' => 'Einstellungen konnten nicht gespeichert werden. Bitte behebe die Fehler und versuche es erneut.',
 
+    'modal' => [
+        'loading_title' => 'Favicons werden generiert …',
+        'loading_hint' => 'Das kann einige Sekunden dauern.',
+        'error_title' => 'Generierung fehlgeschlagen',
+        'close' => 'Schließen',
+    ],
+
+    'errors' => [
+        'missing_inputs' => 'API-Key oder Master-Bild fehlt.',
+        'local_url' => 'Das ausgewählte Bild liegt auf einer lokalen URL und kann von RealFaviconGenerator nicht abgerufen werden. Bitte verwende eine öffentlich erreichbare Bild-URL (funktioniert automatisch im Produktivbetrieb).',
+        'generation_failed' => 'Favicon-Generierung fehlgeschlagen.',
+        'unexpected' => 'Unerwarteter Fehler während der Favicon-Generierung.',
+    ],
+
+    'success' => [
+        'generated' => 'Gespeichert und generiert',
+    ],
+
 ];

@@ -4,4 +4,8 @@
 	:meta='@json($meta)'
 	:initial-values='@json($values)'
 	generate="@lang('statamic-favicon-generator::cp.general.generate')"
+	modal-loading-title="@lang('statamic-favicon-generator::cp.modal.loading_title')"
+	modal-loading-hint="@lang('statamic-favicon-generator::cp.modal.loading_hint')"
+	modal-error-title="@lang('statamic-favicon-generator::cp.modal.error_title')"
+	modal-close="@lang('statamic-favicon-generator::cp.modal.close')"
 ></favicon-generator>

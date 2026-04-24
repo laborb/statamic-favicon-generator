@@ -20,4 +20,22 @@ return [
 
     'unable_to_save' => 'Unable to save settings. Please fix the errors and try again.',
 
+    'modal' => [
+        'loading_title' => 'Generating Favicons…',
+        'loading_hint' => 'This may take a few seconds.',
+        'error_title' => 'Generation failed',
+        'close' => 'Close',
+    ],
+
+    'errors' => [
+        'missing_inputs' => 'Missing API key or master image.',
+        'local_url' => 'The selected image is hosted on a local URL and cannot be fetched by RealFaviconGenerator. Please use a publicly reachable image URL (this works automatically on your production deployment).',
+        'generation_failed' => 'Favicon generation failed.',
+        'unexpected' => 'Unexpected error during favicon generation.',
+    ],
+
+    'success' => [
+        'generated' => 'Saved and generated',
+    ],
+
 ];
